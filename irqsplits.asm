@@ -26,17 +26,21 @@ main
     cli
     ; spin
     jmp *
-splitcount equ 4
+splitcount equ 6
 index
     dta splitcount-1
     ; table of splitcount line counts (reversed), must sum to 312-splitcount (?)
 counts
-    dta 208
+    dta 100
+    dta 56
+    dta 50
     dta 30
     dta 20
     dta 50
     ; color table (reversed)
 colors
+    dta $76 ; blue
+    dta $0
     dta $32 ; red
     dta $0
     dta $B8 ; green
@@ -59,3 +63,4 @@ irq
     pla:tax
     pla
     rti
+    run main
